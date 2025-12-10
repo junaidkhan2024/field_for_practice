@@ -1,0 +1,29 @@
+<h1> Welcome#index </h1>
+
+<%= form_with(model: @reciept, url: "/welcome",method: :post) do |f| %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %> <br><br>
+
+    <%= f.label :date %>
+    <%= f.date_field :date %> <br><br>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <hr>
+
+    <h3>line items</h3>
+    <%= f.fields_for :lineitems do |li| %>
+    <%= li.label :address %>
+    <%= li.text_field :address %><br><br>
+
+    <%= li.label :duedate %>
+    <%= li.date_field :duedate %> <br><br>
+
+    <%= li.lable :quantity %>
+    <%= li.number_field :quantity %>
+
+    <% end %>
+
+    <% f.submit %>
+    <% end%>
